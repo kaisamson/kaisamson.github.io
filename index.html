@@ -35,27 +35,31 @@
     /* Rotating Text */
     .rotate {
       display: inline-block;
-      height: 1.5em;      /* matches line height */
+      height: 1.8em;
       overflow: hidden;
-      vertical-align: bottom;
+      vertical-align: middle;
+      background: #fff;
+      color: #0d1117;
+      padding: 0 10px;
+      border-radius: 12px;
+      margin-right: 6px;
+      font-weight: bold;
     }
-    
+
+    /* Inner rotating words */
     .rotate span {
       display: block;
-      animation: rotateWords 9s infinite; /* total time = words × delay */
+      animation: rotateWords 15s infinite;
     }
-    
+
+    /* Animation keyframes */
     @keyframes rotateWords {
-      0%   { transform: translateY(0%); }
-      25%  { transform: translateY(0%); }
-    
-      33%  { transform: translateY(-100%); }
-      58%  { transform: translateY(-100%); }
-    
-      66%  { transform: translateY(-200%); }
-      91%  { transform: translateY(-200%); }
-    
-      100% { transform: translateY(0%); }
+      0%, 16%   { transform: translateY(0%); }
+      20%, 36%  { transform: translateY(-100%); }
+      40%, 56%  { transform: translateY(-200%); }
+      60%, 76%  { transform: translateY(-300%); }
+      80%, 96%  { transform: translateY(-400%); }
+      100%      { transform: translateY(0%); }
     }
 
     /* ===== Timeline ===== */
@@ -162,14 +166,18 @@
   <header>
     <img src="your-photo.jpg" alt="Profile Photo">
     <h1>Kai Samson</h1>
-    <p>
+    <h2>
       <span class="rotate">
-        <span>AI Enthusiast</span>
-        <span>Student</span>
-        <span>Entrepreneur</span>
+        <span>Game</span>
+        <span>iOS</span>
+        <span>Android</span>
+        <span>Full-Stack</span>
+        <span>Website</span>
+        <span></span>
       </span>
       <span> Developer</span>
-    </p>
+    </h2>
+    <br>
     <p>
       <a href="https://github.com/kaisamson" target="_blank">GitHub</a> | 
       <a href="https://www.linkedin.com/in/kaisamson" target="_blank">LinkedIn</a> | 
@@ -211,7 +219,7 @@
       <span class="year">2014</span>
       <h3>BetterCombat Minecraft Mod</h3>
       <p>My first time coding, and first time learning Java.</p>
-      <img src="minecraft-logo.png" alt="Minecraft Logo">
+      <!-- <img src="minecraft-logo.png" alt="Minecraft Logo"> -->
     </div>
 
     <div class="entry right">
@@ -223,7 +231,7 @@
     <div class="entry left">
       <span class="year">2018</span>
       <h3>Titanic Survival Machine Learning</h3>
-      <p>Built a Machine learning model with python to determine survival rate of different passengers given their biometrics and seating</p>
+      <p>Built a Machine learning model with python to determine survival rate of different passengers given their biometrics and seating.  Built for DMA 2018.</p>
     </div>
 
     <div class="entry right">
