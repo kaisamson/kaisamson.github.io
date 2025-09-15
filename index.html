@@ -35,20 +35,27 @@
     /* Rotating Text */
     .rotate {
       display: inline-block;
-      height: 1.5em;
+      height: 1.5em;      /* matches line height */
       overflow: hidden;
       vertical-align: bottom;
     }
+    
     .rotate span {
       display: block;
-      animation: rotateWords 6s infinite;
+      animation: rotateWords 9s infinite; /* total time = words × delay */
     }
+    
     @keyframes rotateWords {
-      0%   { margin-top: 0; }
-      25%  { margin-top: -1.5em; }
-      50%  { margin-top: -3em; }
-      75%  { margin-top: -4.5em; }
-      100% { margin-top: 0; }
+      0%   { transform: translateY(0%); }
+      25%  { transform: translateY(0%); }
+    
+      33%  { transform: translateY(-100%); }
+      58%  { transform: translateY(-100%); }
+    
+      66%  { transform: translateY(-200%); }
+      91%  { transform: translateY(-200%); }
+    
+      100% { transform: translateY(0%); }
     }
 
     /* ===== Timeline ===== */
