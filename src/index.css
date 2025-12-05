@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-slow {
+  background-size: 300% 300%;
+  animation: gradientShift 18s ease infinite;
+}
+
+/* Fade + slide up for hero text */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+/* Float animation for cards / avatar */
+@keyframes floatSoft {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-soft-float {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero gradient shift */
+@keyframes gradientShift {
+  0% { transform: translate3d(-10px, -10px, 0); }
+  50% { transform: translate3d(10px, 10px, 0); }
+  100% { transform: translate3d(-10px, -10px, 0); }
+}
+
+.animate-gradient-slow {
+  animation: gradientShift 18s ease-in-out infinite;
+}
+
+/* Fade + slide up for hero text */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+/* Soft float for avatar */
+@keyframes floatSoft {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-soft-float {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+/* Star twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+.star-twinkle {
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Shooting star line across screen */
+/* Shooting star line across screen, rotated to match the diagonal */
+@keyframes shooting {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-26deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(-26deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(320px, -160px, 0) rotate(-26deg);
+  }
+}
+
+.shooting-star {
+  width: 160px;
+  height: 2px;
+  /* bright head on the right, fading to the left */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  transform-origin: 0% 50%; /* rotate around the left side */
+  animation: shooting .5s linear forwards;
+}
+
+
+
+
+/* TEST CODE BELOW */
+
+
+.fade-line {
+  animation: fadeIn 0.4s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.fade-text {
+  animation: textFade 1.2s ease-in-out;
+}
+
+@keyframes textFade {
+  0% { opacity: 0; filter: blur(6px); }
+  50% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; }
+}
+
+@keyframes skillFall {
+  0% { transform: translateY(-20px); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(120vh); opacity: 0; }
+}
+
+.animate-skill-fall {
+  animation: skillFall linear infinite;
+}
+
