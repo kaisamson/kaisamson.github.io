@@ -194,12 +194,10 @@ function HeroTypingPhase() {
   const WARNING_MESSAGES = [
     "Hey! I was using that!!",
     "I'm trying to show you my work!!",
-    "Stop typing in my terminal 😡",
-    "BRO. Don't touch that.",
+    "Stop typing in my terminal!",
     "Unauthorized input detected!!",
     "Please... I'm literally mid-demo...",
     "Quit messing with my terminal!!",
-    "HELLO?? That’s not for typing!",
   ];
 
   const [index, setIndex] = useState(0);
@@ -256,7 +254,8 @@ function HeroTypingPhase() {
 
       // If user JUST started typing, pick a random warning
       if (!isUserTyping) {
-        const random = WARNING_MESSAGES[Math.floor(Math.random() * WARNING_MESSAGES.length)];
+        const random =
+          WARNING_MESSAGES[Math.floor(Math.random() * WARNING_MESSAGES.length)];
         setWarningMessage(random);
       }
 
@@ -358,11 +357,11 @@ function HeroTypingPhase() {
     <section className="relative overflow-hidden py-24 md:py-32 text-center">
       {/* glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="animate-gradient-slow h-[380px] w-[380px] md:h-[450px] md:w-[450px] rounded-full bg-gradient-to-br from-[#4eaaff]/30 via-transparent to-[#4eaaff]/10 blur-3xl opacity-80" />
+        <div className="animate-gradient-slow h-[420px] w-[420px] md:h-[520px] md:w-[520px] rounded-full bg-gradient-to-br from-[#4eaaff]/30 via-transparent to-[#4eaaff]/10 blur-3xl opacity-80" />
       </div>
 
       {/* greeting */}
-      <div className="relative max-w-2xl mx-auto mb-10">
+      <div className="relative max-w-3xl mx-auto mb-10">
         <p className="flex items-center justify-center gap-3 text-lg md:text-2xl text-gray-200 mb-3">
           <span className="text-3xl md:text-4xl">👋</span>
           <span>Hello! My name is</span>
@@ -372,20 +371,20 @@ function HeroTypingPhase() {
         </h1>
       </div>
 
-      {/* photo (switches on typing) */}
-      <div className="relative flex justify-center mb-8">
-        <div className="absolute -inset-3 rounded-full bg-black/60 blur-xl" />
+      {/* photo (bigger now) */}
+      <div className="relative flex justify-center mb-10">
+        <div className="absolute -inset-4 md:-inset-5 rounded-full bg-black/60 blur-2xl" />
         <img
           src={isUserTyping ? "/kai-stop-typing.jpg" : "/kai-normal.jpg"}
           alt="Kai Samson"
-          className={`relative w-58 h-58 md:w-70 md:h-70 rounded-full object-cover border border-white/20 shadow-2xl transition duration-300 ${
+          className={`relative w-52 h-52 md:w-64 md:h-64 lg:w-78 lg:h-78 rounded-full object-cover object-[center_20%] border border-white/20 shadow-2xl transition duration-300 ${
             isUserTyping ? "scale-105 opacity-90" : "scale-100 opacity-100"
           }`}
         />
       </div>
 
-      {/* terminal */}
-      <div className="relative mt-4 flex justify-center">
+      {/* terminal (wider & taller) */}
+      <div className="relative mt-2 flex justify-center">
         <div
           ref={terminalRef}
           onClick={() => {
@@ -394,14 +393,14 @@ function HeroTypingPhase() {
             setLastKeyTime(null);
           }}
           className={
-            "bg-black/70 border border-white/10 rounded-xl px-4 py-3 md:px-6 md:py-4 shadow-lg max-w-lg w-full text-left cursor-text transition " +
+            "bg-black/70 border border-white/10 rounded-xl px-5 py-4 md:px-7 md:py-5 shadow-lg max-w-2xl w-full mx-6 text-left cursor-text transition " +
             (terminalFocused
               ? "ring-2 ring-[#7df9ff]/80 border-[#7df9ff]"
               : "hover:border-[#7df9ff]/60")
           }
         >
           {/* terminal header */}
-          <p className="text-[11px] md:text-xs text-gray-400 font-mono mb-1 flex justify-between">
+          <p className="text-[11px] md:text-xs text-gray-400 font-mono mb-2 flex justify-between">
             <span>kai@portfolio:~$</span>
 
             {!terminalFocused && (
@@ -413,13 +412,13 @@ function HeroTypingPhase() {
 
           {/* warning message */}
           {terminalFocused && isUserTyping && warningMessage && (
-            <p className="text-[10px] md:text-xs text-red-400 font-mono mb-1">
+            <p className="text-[10px] md:text-xs text-red-400 font-mono mb-2">
               ⚠ {warningMessage}
             </p>
           )}
 
           {/* terminal line (no wrap) */}
-          <p className="text-sm md:text-base text-[#4eaaff] font-mono whitespace-nowrap overflow-hidden">
+          <p className="text-sm md:text-base lg:text-lg text-[#4eaaff] font-mono whitespace-nowrap overflow-hidden">
             {"> "}
             {visibleText}
             <span className="border-r-2 border-[#4eaaff] animate-pulse ml-1" />
@@ -427,7 +426,7 @@ function HeroTypingPhase() {
         </div>
       </div>
 
-      {/* CTA buttons below (unchanged)… */}
+      {/* CTA buttons below stay the same */}
     </section>
   );
 }
@@ -464,12 +463,12 @@ const PROJECTS = [
     title: "Mycel OS",
     subtitle: "Brokerless Freight Platform",
     description:
-      "Real-time logistics OS that syncs shippers and fleets, removes broker middlemen, and won 1st place at OppFest 2025.",
+      "Real-time logistics OS that syncs shippers and fleets, removes broker middlemen, and won 1st place at OppFest 2025.  Link to lightweight demo and info-site.",
     image: "/projects/mycel-os.png",
-    tags: ["React", "Firebase", "Swift"],
-    github: "https://github.com/YOUR_GITHUB/mycel-os",
-    website: "https://mycel-os-demo.com",
-    primaryLink: "https://mycel-os-demo.com", // mini card will click here
+    tags: ["React", "Firebase", "Swift", "JS"],
+    github: null,
+    website: "https://mycel-demo.web.app/",
+    primaryLink: "https://mycel-demo.web.app/", // mini card will click here
     featured: false,
   },
   {
@@ -485,51 +484,51 @@ const PROJECTS = [
     featured: false,
   },
   {
-    title: "PuttingView",
-    subtitle: "Green Reading Companion",
+    title: "Orange Squash - Android",
+    subtitle: "14 Oranges Internship Project",
     description:
-      "Concept app that uses device sensors to estimate slope and visualize ideal start lines for putts from different distances.",
-    image: "/projects/puttingview.png",
-    tags: ["Swift", "CoreMotion", "UI/UX"],
+      "Built during 14 Oranges internship An Android app that allows quick bug reporting to FogBugz with screenshots and device info.",
+    image: "/projects/14-oranges.jpg",
+    tags: ["Java", "Android Studio", "OkHttp3"],
     github: null,
-    website: null,
-    primaryLink: null, // not clickable yet
+    website: "https://www.14oranges.com/orange-squash-for-fogbugz/",
+    primaryLink: "https://www.14oranges.com/orange-squash-for-fogbugz/",
     featured: false,
   },
   {
-    title: "Neuronami Portfolio",
-    subtitle: "Developer Portfolio Site",
+    title: "Isekai Origins",
+    subtitle: "Top down MMO Combat System",
     description:
-      "This portfolio site — terminal-themed hero, starfield background, and responsive project spotlight layout built with React + Tailwind.",
-    image: "/projects/portfolio.png",
-    tags: ["React", "Vite", "Tailwind"],
-    github: "https://github.com/YOUR_GITHUB/portfolio",
-    website: "https://YOUR_USERNAME.github.io",
-    primaryLink: "https://YOUR_USERNAME.github.io",
+      "A Lua combat system for an isekai-themed top-down MMO game built in Roblox, featuring abilities, hitboxing, and dynamic enemy bots.",
+    image: "/projects/isekai-origins.jpg",
+    tags: ["Lua", "Roblox Studio"],
+    github: null,
+    website: "https://www.roblox.com/games/111168131214887/Isekai-Origins-Demo",
+    primaryLink: "https://www.roblox.com/games/111168131214887/Isekai-Origins-Demo",
     featured: false,
   },
   {
-    title: "CS Course Planner",
-    subtitle: "SFU / Langara Planner Tool",
+    title: "Finance Tracker - HS Capstone",
+    subtitle: "Everyday Expenses",
     description:
-      "Small tool to map out CS courses, prerequisites, and transfer paths between Langara and SFU across multiple semesters.",
-    image: "/projects/cs-planner.png",
-    tags: ["TypeScript", "React", "Data Viz"],
-    github: "https://github.com/YOUR_GITHUB/cs-course-planner",
+      "An Android personal finance tracker created in highschool. Log expenses, plan savings, and manage budgets with an extravagant UI.",
+    image: "/projects/everyday-exp.jpg",
+    tags: ["Java", "Android Studio"],
+    github: "https://github.com/kaisamson/everyday-expenses",
     website: null,
-    primaryLink: "https://github.com/YOUR_GITHUB/cs-course-planner",
+    primaryLink: "https://github.com/kaisamson/everyday-expenses",
     featured: false,
   },
   {
-    title: "CS Course Planner",
-    subtitle: "SFU / Langara Planner Tool",
+    title: "Titanic Survival ML",
+    subtitle: "Python ML Project",
     description:
-      "Small tool to map out CS courses, prerequisites, and transfer paths between Langara and SFU across multiple semesters.",
-    image: "/projects/cs-planner.png",
-    tags: ["TypeScript", "React", "Data Viz"],
-    github: "https://github.com/YOUR_GITHUB/cs-course-planner",
+      "A machine learning model that learns how to predict death on a sinking Titantic given a past dataset of passengers",
+    image: "/projects/dma.jpg",
+    tags: ["Python", "Keras", "Matplotlib"],
+    github: "https://github.com/kaisamson/titanic-survival-ml",
     website: null,
-    primaryLink: "https://github.com/YOUR_GITHUB/cs-course-planner",
+    primaryLink: "https://github.com/kaisamson/titanic-survival-ml",
     featured: false,
   },
 ];
@@ -844,7 +843,7 @@ const EXPERIENCES = [
   },
   {
     id: "mycel",
-    role: "Product Lead",
+    role: "Lead Software Engineer",
     company: "Mycel OS",
     timeframe: "Sept 2025 – Dec 2025",
     location: "SFU · OppFest 2025",
@@ -860,61 +859,61 @@ const EXPERIENCES = [
     logoAlt: "Mycel OS logo",
     highlight: "OppFest 2025 Winner 🏆",
   },
+ {
+  id: "oranges",
+  role: "Software Developer Intern",
+  company: "14 Oranges Software",
+  timeframe: "Aug 2020 – Jul 2021",
+  location: "Richmond, BC",
+  blurb:
+    "Contributed to full-stack mobile tools, client websites, and internal developer workflows during a company-wide transition to Android.",
+  bullets: [
+    "Built a full-stack Android app used by QA staff and future interns to report bugs directly to developers, enabling mobile access to the project management database during a company-wide iOS → Android migration.",
+    "Implemented a Java API Manager using Square OkHttp3 for efficient JSON API request handling across multiple production apps.",
+    "Debugged and tested new WebApp features with the QA team, collaborating with developers to rapidly identify and resolve broken functionality.",
+    "Developed responsive WordPress.org websites for business clients, improving conversions and traffic through optimized layout, structure, and SEO-focused keyword integration.",
+    "Set up secure FTP systems via SSH tunnels on Ubuntu, enabling remote work continuity during COVID-19.",
+  ],
+  tags: ["Java", "Android", "OkHttp3", "Full-Stack", "QA", "WordPress", "Linux"],
+  logo: "/logos/14-oranges.png",
+  logoAlt: "14 Oranges Software logo",
+  highlight: "Internship",
+  },
   {
-    id: "oranges",
-    role: "Software Developer Intern",
-    company: "14 Oranges Software",
-    timeframe: "Oct 2020 – Aug 2021",
+    id: "cnl",
+    role: "Linux Admin / Website Admin",
+    company: "C&L Multimedia",
+    timeframe: "Sept 2021 – Present",
+    location: "Vancouver, BC",
+    blurb:
+      "Supporting a legacy e-commerce stack by automating workflows, maintaining Linux servers, and keeping large product and client databases up to date.",
+    bullets: [
+      "Automated HTML page generation with shell scripts, boosting throughput from ~120 pages/hour to over 10,000 pages/hour.",
+      "Automated normalization of 100k+ products in a legacy FoxPro SQL database via shell scripts, eliminating 800+ hours of manual entry and ensuring error-free UPC-based naming.",
+      "Maintained and updated records for 37,000+ clients in a legacy database, improving data accuracy and enabling more effective customer outreach.",
+    ],
+    tags: ["Linux", "Shell Scripting", "FoxPro No-SQL", "Automation"],
+    logo: "/logos/cnl-logo.svg",         // swap to your real logo path when ready
+    logoAlt: "C&L Multimedia logo",
+    highlight: "Linux + Automation",
+  },
+  {
+    id: "tutor",
+    role: "Assistant Coding Tutor",
+    company: "Richmond Public Library",
+    timeframe: "2024",
     location: "Richmond, BC",
     blurb:
-      "Joined a mobile-first software consultancy, contributing to production apps and internal tools.",
+      "Helped kids take their first steps into programming by teaching Roblox game development workshops focused on creativity and core coding concepts.",
     bullets: [
-      "Implemented UI features and bug fixes across client mobile apps under senior developer guidance.",
-      "Learned professional Git workflows, code reviews, and agile ceremonies in a real-world team.",
-      "Collaborated with designers and PMs to clarify requirements and ship on tight client timelines.",
+      "Taught kids how to build simple Roblox games in Roblox Studio, introducing Lua scripting through hands-on projects.",
+      "Explained foundational programming ideas—events, conditionals, and loops—in an age-appropriate, game-focused way.",
+      "Encouraged creativity and persistence by helping students debug their own games and present their projects to peers.",
     ],
-    tags: ["Internship", "Mobile", "Git", "Agile", "Client Work"],
-    logo: "/logos/14oranges-logo.svg",
-    logoAlt: "14 Oranges Software logo",
-    highlight: "Internship",
-  },
-  // Dummy 4
-  {
-    id: "ta",
-    role: "Teaching Assistant",
-    company: "SFU Computing Science",
-    timeframe: "2026 – Present",
-    location: "Burnaby, BC",
-    blurb:
-      "Assisting with introductory computer science courses, helping students understand core programming concepts and debugging techniques.",
-    bullets: [
-      "Hosted weekly office hours to walk students through problem-solving strategies and assignment structure.",
-      "Marked labs and assignments with clear, constructive feedback on code quality and style.",
-      "Collaborated with the course instructor to refine examples and exercises based on student feedback.",
-    ],
-    tags: ["Teaching", "Mentorship", "CS Fundamentals"],
-    logo: "/logos/sfu-logo.svg",
-    logoAlt: "SFU logo",
-    highlight: "Student Mentor",
-  },
-  // Dummy 5
-  {
-    id: "freelance",
-    role: "Freelance Developer",
-    company: "Self-Employed",
-    timeframe: "2023 – Present",
-    location: "Remote",
-    blurb:
-      "Building small web tools and prototypes for friends, student clubs, and early-stage ideas.",
-    bullets: [
-      "Designed and shipped lightweight React / Tailwind landing pages for student projects.",
-      "Integrated simple Firebase backends for auth and basic data storage.",
-      "Iterated quickly on UX based on real user feedback from non-technical clients.",
-    ],
-    tags: ["React", "Tailwind", "Firebase", "Freelance"],
-    logo: "/logos/freelance-logo.svg",
-    logoAlt: "Freelance logo",
-    highlight: "Side Projects",
+    tags: ["Teaching", "Lua", "Roblox Studio", "STEM Outreach"],
+    logo: "/logos/library-logo.svg",     // swap to your real logo path when ready
+    logoAlt: "Richmond Public Library logo",
+    highlight: "Youth Coding Mentor",
   },
 ];
 
@@ -951,12 +950,12 @@ function ExperienceSection() {
                     }`}
                 >
                   {/* Logo + company name only */}
-                  <div className="flex items-center gap-3 w-full">
+                  <div className="flex items-center gap-2 w-full">
                     {exp.logo && (
                       <img
                         src={exp.logo}
                         alt={exp.logoAlt || exp.company}
-                        className="h-7 w-auto object-contain opacity-90"
+                        className="h-12 w-12 md:h-18 md:w-18 object-contain opacity-90"
                       />
                     )}
 
@@ -964,6 +963,7 @@ function ExperienceSection() {
                       {exp.company}
                     </p>
                   </div>
+
                 </button>
               );
             })}
@@ -1030,9 +1030,6 @@ function ExperienceSection() {
     </section>
   );
 }
-
-
-
 
 
 
@@ -1171,7 +1168,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Left label */}
           <span className="text-base md:text-lg font-semibold tracking-wide text-white">
-            kai@portfolio:~/
+            KS
           </span>
 
           {/* Right: nav buttons */}
