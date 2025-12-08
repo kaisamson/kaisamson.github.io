@@ -476,7 +476,7 @@ const PROJECTS = [
     subtitle: "AI-Powered Daily Time Analysis",
     description:
       "Personal iOS + web ecosystem that turns end-of-day voice recaps into structured timelines, productivity metrics, and coaching suggestions. Cadence uses transcription and a low-cost cloud LLM to analyze how you spend your time, sync logs across devices, and surface trends in focus, wasted hours, and sleep.",
-    image: "/projects/cadence.png",
+    image: "/projects/cadence.jpg",
     tags: ["SwiftUI", "Postgres", "Next.js", "TypeScript", "OpenAI", "Supabase"],
     github: "https://github.com/kaisamson/cadence-web",
     website: null,
