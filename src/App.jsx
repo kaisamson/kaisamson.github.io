@@ -472,15 +472,15 @@ const PROJECTS = [
     featured: false,
   },
   {
-    title: "GolfMirror",
-    subtitle: "Delayed Swing Replay",
+    title: "Cadence – Own Your Time",
+    subtitle: "AI-Powered Daily Time Analysis",
     description:
-      "Range-side tool that records your swing and auto-replays it on a short delay so you can watch yourself between shots without touching your phone.",
-    image: "/projects/golfmirror.png",
-    tags: ["SwiftUI", "AVFoundation"],
-    github: "https://github.com/YOUR_GITHUB/golfmirror",
+      "Personal iOS + web ecosystem that turns end-of-day voice recaps into structured timelines, productivity metrics, and coaching suggestions. Cadence uses transcription and a low-cost cloud LLM to analyze how you spend your time, sync logs across devices, and surface trends in focus, wasted hours, and sleep.",
+    image: "/projects/cadence.png",
+    tags: ["SwiftUI", "Postgres", "Next.js", "TypeScript", "OpenAI", "Supabase"],
+    github: "https://github.com/kaisamson/cadence-web",
     website: null,
-    primaryLink: "https://github.com/YOUR_GITHUB/golfmirror",
+    primaryLink: "https://github.com/kaisamson/cadence-web",
     featured: false,
   },
   {
