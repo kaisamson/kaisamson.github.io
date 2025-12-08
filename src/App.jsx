@@ -541,8 +541,9 @@ function ProjectMiniCard({ project }) {
     project.primaryLink || project.website || project.github || null;
 
   const CardInner = (
-    <div className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-none backdrop-blur-md transition-transform hover:-translate-y-1 hover:border-[#4eaaff]/70 hover:shadow-[0_0_35px_rgba(78,170,255,0.35)] hover:bg-white/10">
-      <div className="relative h-32 overflow-hidden">
+    <div className="group h-full flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-none backdrop-blur-md transition-transform hover:-translate-y-1 hover:border-[#4eaaff]/70 hover:shadow-[0_0_35px_rgba(78,170,255,0.35)] hover:bg-white/10">
+      {/* Bigger image area */}
+      <div className="relative h-40 md:h-48 overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
@@ -551,14 +552,15 @@ function ProjectMiniCard({ project }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         <div className="absolute bottom-2 left-3 right-3">
           <p className="text-[11px] text-gray-300">{project.subtitle}</p>
-          <h3 className="text-sm font-semibold text-white truncate">
+          <h3 className="text-sm md:text-base font-semibold text-white truncate">
             {project.title}
           </h3>
         </div>
       </div>
 
-      <div className="p-4 space-y-3">
-        <p className="text-xs text-gray-300 line-clamp-3">
+      {/* Content fills remaining height */}
+      <div className="p-5 md:p-6 flex flex-col flex-1 space-y-3">
+        <p className="text-xs md:text-sm text-gray-300 line-clamp-3">
           {project.description}
         </p>
 
@@ -566,7 +568,7 @@ function ProjectMiniCard({ project }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-2 py-0.5 rounded-full bg-black/40 border border-white/10 text-[10px] text-gray-200"
+              className="px-2 py-0.5 rounded-full bg-black/40 border border-white/10 text-[10px] md:text-[11px] text-gray-200"
             >
               {tag}
             </span>
@@ -574,13 +576,13 @@ function ProjectMiniCard({ project }) {
         </div>
 
         {(project.github || project.website) && (
-          <div className="flex flex-wrap gap-3 pt-1">
+          <div className="mt-auto flex flex-wrap gap-3 pt-1">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#7df9ff] hover:text-white transition"
+                className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-medium text-[#7df9ff] hover:text-white transition"
                 onClick={(e) => e.stopPropagation()}
               >
                 <FaGithub size={12} />
@@ -592,7 +594,7 @@ function ProjectMiniCard({ project }) {
                 href={project.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#7df9ff] hover:text-white transition"
+                className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-medium text-[#7df9ff] hover:text-white transition"
                 onClick={(e) => e.stopPropagation()}
               >
                 <FaExternalLinkAlt size={10} />
@@ -611,16 +613,16 @@ function ProjectMiniCard({ project }) {
         href={primaryHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="block"
+        className="block h-full"
       >
         {CardInner}
       </a>
     );
   }
 
-  // Not clickable if no link set
-  return CardInner;
+  return <div className="h-full">{CardInner}</div>;
 }
+
 
 /* ============================================================
    PROJECT SPOTLIGHT (text left, image carousel right)
@@ -814,6 +816,7 @@ function ProjectsSpotlightSection() {
             ))}
           </div>
         )}
+
       </div>
     </section>
   );
