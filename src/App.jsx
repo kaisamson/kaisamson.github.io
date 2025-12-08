@@ -184,11 +184,12 @@ function HeroTerminalPhase({ onDone }) {
 
 function HeroTypingPhase() {
   const phrases = [
-    "Shipping AI-powered golf tools",
-    "Building Mycel OS – OppFest Winner",
-    "Designing brokerless logistics systems",
-    "Creating ML pipelines for sports",
-    "Crafting clean & premium UX/UI",
+    "Prev. SDI @ 14 Oranges — Android + Web 🍊",
+    "CS @ Simon Fraser University 🎓",
+    "Building Neuronami Golf (iOS + ML) 🏌️‍♂️",
+    "OppFest 2025 – Tech & Services Winner 🏆",
+    "iOS + AI development for sports & focus 📱",
+    "Linux automation for legacy systems 🐧💻",
   ];
 
   const WARNING_MESSAGES = [
@@ -426,16 +427,53 @@ function HeroTypingPhase() {
         </div>
       </div>
 
-      {/* CTA buttons below stay the same */}
+      {/* Hero CTA buttons (like contact section) */}
+      <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
+        {/* Resume */}
+        <a
+          href="/Kai_Resume.pdf" // Update this path to your actual resume file
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 rounded-xl border-2 border-[#4eaaff] bg-black/60 px-5 py-2.5 md:px-7 md:py-3 text-sm md:text-base font-semibold text-white shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#7df9ff] transition"
+        >
+          <FaFileAlt className="text-[#7df9ff]" size={18} />
+          <span>Resume</span>
+        </a>
+
+        {/* GitHub */}
+        <a
+          href="https://github.com/kaisamson"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 rounded-xl border-2 border-[#4eaaff] bg-black/60 px-5 py-2.5 md:px-7 md:py-3 text-sm md:text-base font-semibold text-white shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#7df9ff] transition"
+        >
+          <FaGithub className="text-[#7df9ff]" size={18} />
+          <span>GitHub</span>
+        </a>
+
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/kaisamson/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 rounded-xl border-2 border-[#4eaaff] bg-black/60 px-5 py-2.5 md:px-7 md:py-3 text-sm md:text-base font-semibold text-white shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#7df9ff] transition"
+        >
+          <FaLinkedin className="text-[#7df9ff]" size={18} />
+          <span>LinkedIn</span>
+        </a>
+
+        {/* Email */}
+        <a
+          href="mailto:khs11@sfu.ca"
+          className="inline-flex items-center gap-3 rounded-xl border-2 border-[#4eaaff] bg-black/60 px-5 py-2.5 md:px-7 md:py-3 text-sm md:text-base font-semibold text-white shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#7df9ff] transition"
+        >
+          <FaEnvelope className="text-[#7df9ff]" size={18} />
+          <span>Email</span>
+        </a>
+      </div>
     </section>
   );
 }
-
-
-
-
-
-
 
 /* ============================================================
    PROJECTS DATA (with images & featured)
@@ -450,7 +488,7 @@ const PROJECTS = [
     images: [
       "/projects/neuronami-golf-1.png",
       "/projects/neuronami-golf-2.png",
-      "/projects/neuronami-golf-3.png",
+      "/projects/neuronami-golf-3.jpg",
     ],
     tags: ["Swift", "YOLO", "CoreML", "Firebase"],
     github: null,
@@ -475,7 +513,7 @@ const PROJECTS = [
     title: "Cadence – Own Your Time",
     subtitle: "AI-Powered Daily Time Analysis",
     description:
-      "Personal iOS + web ecosystem that turns end-of-day voice recaps into structured timelines, productivity metrics, and coaching suggestions. Cadence uses transcription and a low-cost cloud LLM to analyze how you spend your time, sync logs across devices, and surface trends in focus, wasted hours, and sleep.",
+      "Personal iOS + web ecosystem that turns end-of-day voice recaps into structured timelines, productivity metrics, and coaching suggestions.",
     image: "/projects/cadence.jpg",
     tags: ["SwiftUI", "Postgres", "Next.js", "TypeScript", "OpenAI", "Supabase"],
     github: "https://github.com/kaisamson/cadence-web",
@@ -487,7 +525,7 @@ const PROJECTS = [
     title: "Orange Squash - Android",
     subtitle: "14 Oranges Internship Project",
     description:
-      "Built during 14 Oranges internship An Android app that allows quick bug reporting to FogBugz with screenshots and device info.",
+      "Built during 14 Oranges internship - An Android app that allows quick bug reporting to FogBugz with screenshots and device info.",
     image: "/projects/14-oranges.jpg",
     tags: ["Java", "Android Studio", "OkHttp3"],
     github: null,
@@ -541,7 +579,7 @@ function ProjectMiniCard({ project }) {
     project.primaryLink || project.website || project.github || null;
 
   const CardInner = (
-    <div className="group h-full flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-none backdrop-blur-md transition-transform hover:-translate-y-1 hover:border-[#4eaaff]/70 hover:shadow-[0_0_35px_rgba(78,170,255,0.35)] hover:bg-white/10">
+    <div className="group h-full flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-none backdrop-blur-md transition-transform hover:-translate-y-1 hover:border-[#4eaaff]/70 hover:shadow-[0_0_35px_rgba(78,170,255,0.35)] hover:bg-white/10 min-h-[360px] md:min-h-[380px]">
       {/* Bigger image area */}
       <div className="relative h-40 md:h-48 overflow-hidden">
         <img
@@ -560,7 +598,7 @@ function ProjectMiniCard({ project }) {
 
       {/* Content fills remaining height */}
       <div className="p-5 md:p-6 flex flex-col flex-1 space-y-3">
-        <p className="text-xs md:text-sm text-gray-300 line-clamp-3">
+        <p className="text-xs md:text-sm text-gray-300">
           {project.description}
         </p>
 
@@ -622,7 +660,6 @@ function ProjectMiniCard({ project }) {
 
   return <div className="h-full">{CardInner}</div>;
 }
-
 
 /* ============================================================
    PROJECT SPOTLIGHT (text left, image carousel right)
@@ -690,10 +727,8 @@ function ProjectSpotlight({ project }) {
   return (
     <div className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-none backdrop-blur-md transition-transform hover:-translate-y-1 hover:border-[#4eaaff]/80 hover:shadow-[0_0_45px_rgba(78,170,255,0.4)] hover:bg-white/10">
       <div className="grid md:grid-cols-2">
-
         {/* LEFT: Text content */}
         <div className="p-6 md:p-8 flex flex-col justify-center space-y-4">
-
           <div>
             <p className="text-xs uppercase tracking-wide text-[#7df9ff] mb-1">
               Featured Project
@@ -730,7 +765,6 @@ function ProjectSpotlight({ project }) {
 
         {/* RIGHT: Image carousel w/ smooth fade */}
         <div className="relative h-56 md:h-full min-h-[220px] bg-black/60 overflow-hidden">
-
           {/* Previous Image (fades out) */}
           <img
             key={`prev-${prevIndex}`}
@@ -791,8 +825,6 @@ function ProjectSpotlight({ project }) {
   );
 }
 
-
-
 /* ============================================================
    PROJECTS SECTION — spotlight + 3-column grid
    ============================================================ */
@@ -816,7 +848,6 @@ function ProjectsSpotlightSection() {
             ))}
           </div>
         )}
-
       </div>
     </section>
   );
@@ -826,24 +857,6 @@ function ProjectsSpotlightSection() {
    EXPERIENCE DATA (with logos + highlight badge)
    ============================================================ */
 const EXPERIENCES = [
-  {
-    id: "neuronami",
-    role: "Founder",
-    company: "Neuronami",
-    timeframe: "2024 – Present",
-    location: "Vancouver, BC",
-    blurb:
-      "Building AI-native tools for golf practice and logistics, starting with Neuronami Golf – an iOS swing analysis app powered by pose estimation and custom ML.",
-    bullets: [
-      "Designing and shipping Swift / SwiftUI apps with CoreML, Firebase, and premium UX for golfers.",
-      "Prototyping and validating product ideas through demo videos, early testers, and iterative UX.",
-      "Owning end-to-end execution: branding, engineering, roadmap, and early go-to-market experiments.",
-    ],
-    tags: ["Swift / SwiftUI", "CoreML", "Firebase", "Product", "Founder"],
-    logo: "/logos/neuronami-logo.svg",
-    logoAlt: "Neuronami logo",
-    highlight: "Founder & Builder",
-  },
   {
     id: "mycel",
     role: "Lead Software Engineer",
@@ -858,29 +871,47 @@ const EXPERIENCES = [
       "Drove customer discovery with fleet owners / drivers and iterated the business model canvas.",
     ],
     tags: ["Product", "Firebase", "JavaScript", "Logistics", "Competition"],
-    logo: "/logos/mycel-logo.svg",
+    logo: "/logos/mycel.png",
     logoAlt: "Mycel OS logo",
     highlight: "OppFest 2025 Winner 🏆",
   },
- {
-  id: "oranges",
-  role: "Software Developer Intern",
-  company: "14 Oranges Software",
-  timeframe: "Aug 2020 – Jul 2021",
-  location: "Richmond, BC",
-  blurb:
-    "Contributed to full-stack mobile tools, client websites, and internal developer workflows during a company-wide transition to Android.",
-  bullets: [
-    "Built a full-stack Android app used by QA staff and future interns to report bugs directly to developers, enabling mobile access to the project management database during a company-wide iOS → Android migration.",
-    "Implemented a Java API Manager using Square OkHttp3 for efficient JSON API request handling across multiple production apps.",
-    "Debugged and tested new WebApp features with the QA team, collaborating with developers to rapidly identify and resolve broken functionality.",
-    "Developed responsive WordPress.org websites for business clients, improving conversions and traffic through optimized layout, structure, and SEO-focused keyword integration.",
-    "Set up secure FTP systems via SSH tunnels on Ubuntu, enabling remote work continuity during COVID-19.",
-  ],
-  tags: ["Java", "Android", "OkHttp3", "Full-Stack", "QA", "WordPress", "Linux"],
-  logo: "/logos/14-oranges.png",
-  logoAlt: "14 Oranges Software logo",
-  highlight: "Internship",
+  {
+    id: "oranges",
+    role: "Software Developer Intern",
+    company: "14 Oranges Software",
+    timeframe: "Aug 2020 – Jul 2021",
+    location: "Richmond, BC",
+    blurb:
+      "Contributed to full-stack mobile tools, client websites, and internal developer workflows during a company-wide transition to Android.",
+    bullets: [
+      "Built a full-stack Android app used by QA staff and future interns to report bugs directly to developers, enabling mobile access to the project management database during a company-wide iOS → Android migration.",
+      "Implemented a Java API Manager using Square OkHttp3 for efficient JSON API request handling across multiple production apps.",
+      "Debugged and tested new WebApp features with the QA team, collaborating with developers to rapidly identify and resolve broken functionality.",
+      "Developed responsive WordPress.org websites for business clients, improving conversions and traffic through optimized layout, structure, and SEO-focused keyword integration.",
+      "Set up secure FTP systems via SSH tunnels on Ubuntu, enabling remote work continuity during COVID-19.",
+    ],
+    tags: ["Java", "Android", "OkHttp3", "Full-Stack", "QA", "WordPress", "Linux"],
+    logo: "/logos/14-oranges.png",
+    logoAlt: "14 Oranges Software logo",
+    highlight: "Internship",
+  },
+  {
+    id: "neuronami",
+    role: "Founder",
+    company: "Neuronami Golf",
+    timeframe: "2024 – Present",
+    location: "Vancouver, BC",
+    blurb:
+      "Building AI-native tools for golf practice and logistics, starting with Neuronami Golf – an iOS swing analysis app powered by pose estimation and custom ML.",
+    bullets: [
+      "Designing and shipping Swift / SwiftUI apps with CoreML, Firebase, and premium UX for golfers.",
+      "Prototyping and validating product ideas through demo videos, early testers, and iterative UX.",
+      "Owning end-to-end execution: branding, engineering, roadmap, and early go-to-market experiments.",
+    ],
+    tags: ["Swift / SwiftUI", "CoreML", "Firebase", "Product", "Founder"],
+    logo: "/logos/neuronami.png",
+    logoAlt: "Neuronami logo",
+    highlight: "Founder & Builder",
   },
   {
     id: "cnl",
@@ -896,7 +927,7 @@ const EXPERIENCES = [
       "Maintained and updated records for 37,000+ clients in a legacy database, improving data accuracy and enabling more effective customer outreach.",
     ],
     tags: ["Linux", "Shell Scripting", "FoxPro No-SQL", "Automation"],
-    logo: "/logos/cnl-logo.svg",         // swap to your real logo path when ready
+    logo: "/logos/cnl.png",
     logoAlt: "C&L Multimedia logo",
     highlight: "Linux + Automation",
   },
@@ -914,20 +945,19 @@ const EXPERIENCES = [
       "Encouraged creativity and persistence by helping students debug their own games and present their projects to peers.",
     ],
     tags: ["Teaching", "Lua", "Roblox Studio", "STEM Outreach"],
-    logo: "/logos/library-logo.svg",     // swap to your real logo path when ready
+    logo: "/logos/rpl.png",
     logoAlt: "Richmond Public Library logo",
     highlight: "Youth Coding Mentor",
   },
 ];
-
-
 
 /* ============================================================
    EXPERIENCE – COMPANY LANES (compact pills, logos, aligned card)
    ============================================================ */
 function ExperienceSection() {
   const [activeId, setActiveId] = useState(EXPERIENCES[0].id);
-  const active = EXPERIENCES.find((exp) => exp.id === activeId) || EXPERIENCES[0];
+  const active =
+    EXPERIENCES.find((exp) => exp.id === activeId) || EXPERIENCES[0];
 
   return (
     <section id="experience" className="scroll-mt-24">
@@ -936,7 +966,6 @@ function ExperienceSection() {
       <div className="flex flex-col md:flex-row md:items-stretch gap-6 md:gap-8">
         {/* LEFT: Company lane */}
         <div className="w-full md:w-[260px] lg:w-[280px] flex flex-col">
-
           <div className="space-y-3 flex-1">
             {EXPERIENCES.map((exp) => {
               const isActive = exp.id === activeId;
@@ -966,16 +995,15 @@ function ExperienceSection() {
                       {exp.company}
                     </p>
                   </div>
-
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* RIGHT: Active detail card (aligned vertically with lane) */}
+        {/* RIGHT: Active detail card – fixed height, scrolls inside */}
         <div className="md:flex-1">
-          <div className="bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md p-6 md:p-8 shadow-lg flex flex-col h-full">
+          <div className="bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md p-6 md:p-8 shadow-lg flex flex-col h-[420px] md:h-[480px]">
             {/* Header: title + highlight */}
             <div className="flex items-start justify-between gap-4 mb-3">
               <div>
@@ -1014,28 +1042,25 @@ function ExperienceSection() {
               </div>
             )}
 
-            {/* Blurb + bullets */}
-            <p className="text-sm md:text-base text-gray-200 mb-4 leading-relaxed">
-              {active.blurb}
-            </p>
+            {/* Scrollable blurb + bullets so card height stays constant */}
+            <div className="space-y-3 text-sm md:text-base text-gray-200 leading-relaxed overflow-y-auto pr-1 flex-1">
+              <p>{active.blurb}</p>
 
-            <ul className="space-y-2 text-sm md:text-base text-gray-200">
-              {active.bullets.map((item, idx) => (
-                <li key={idx} className="flex gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#7df9ff]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+              <ul className="space-y-2">
+                {active.bullets.map((item, idx) => (
+                  <li key={idx} className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#7df9ff]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-
-
 
 /* ============================================================
    EDUCATION
@@ -1058,7 +1083,8 @@ function EducationSection() {
               </p>
               <p className="text-xs md:text-sm text-gray-400">Burnaby, BC</p>
               <p className="text-xs md:text-sm text-gray-300 mt-2">
-                Bachelor&apos;s in Computing Science with a focus on software engineering and AI.
+                Bachelor&apos;s in Computing Science with a focus on software
+                engineering and AI.
               </p>
             </div>
 
@@ -1080,7 +1106,8 @@ function EducationSection() {
               </p>
               <p className="text-xs md:text-sm text-gray-400">Vancouver, BC</p>
               <p className="text-xs md:text-sm text-gray-300 mt-2">
-                Part-time Associate of Science in Computer Science while working and building projects.
+                Part-time Associate of Science in Computer Science while working
+                and building projects.
               </p>
             </div>
 
@@ -1110,10 +1137,9 @@ function ContactSection() {
       </p>
 
       <div className="flex flex-col items-center gap-4">
-
         {/* EMAIL */}
         <a
-          href="mailto:samsonkai123@gmail.com"
+          href="mailto:khs11@sfu.ca"
           className="inline-flex items-center gap-3 rounded-xl border-2 border-[#4eaaff] bg-black/60 px-7 py-3 text-white text-lg font-semibold shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#7df9ff] transition w-[260px] justify-center"
         >
           <FaEnvelope className="text-[#7df9ff]" size={22} />
@@ -1147,7 +1173,6 @@ function ContactSection() {
     </section>
   );
 }
-
 
 /* ============================================================
    MAIN APP
@@ -1213,7 +1238,7 @@ export default function App() {
       <footer className="border-t border-white/10 bg-black/40 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs md:text-sm text-gray-400">
-            © {new Date().getFullYear()} Kai Samson. All rights reserved.
+            © {new Date().getFullYear()} Kai Samson.
           </p>
 
           <div className="flex items-center gap-5">
@@ -1242,7 +1267,6 @@ export default function App() {
           </div>
         </div>
       </footer>
-
     </div>
   );
 }

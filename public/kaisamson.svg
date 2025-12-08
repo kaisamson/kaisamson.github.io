@@ -1,0 +1,35 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="space-bg" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#1a2a6c"/> <stop offset="100%" stop-color="#020a1a"/> </radialGradient>
+
+    <linearGradient id="orbit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2ff"/> <stop offset="100%" stop-color="#0048ff"/> </linearGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#space-bg)"/>
+
+  <g transform="translate(250, 250)">
+    
+    <g transform="rotate(-25)" filter="url(#glow)">
+        <ellipse cx="0" cy="0" rx="160" ry="80" fill="none" stroke="url(#orbit-grad)" stroke-width="6" opacity="0.8" stroke-linecap="round" stroke-dasharray="400 100"/>
+        <ellipse cx="0" cy="0" rx="120" ry="60" fill="none" stroke="url(#orbit-grad)" stroke-width="4" opacity="0.6" transform="rotate(45)"/>
+        
+        <circle cx="160" cy="0" r="10" fill="white">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+
+    <text x="0" y="55" text-anchor="middle" font-family="'Montserrat', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="160" fill="white" letter-spacing="-5">
+      KS
+    </text>
+  </g>
+</svg>
