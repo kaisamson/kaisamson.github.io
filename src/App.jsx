@@ -483,16 +483,16 @@ const PROJECTS = [
     title: "Neuronami Golf AI",
     subtitle: "AI Swing Analysis App",
     description:
-      "iOS app that uses pose estimation and custom ML models to compare golfer swings to tour pros, with swing metrics and real-time feedback.",
+      "iOS app that uses pose estimation and custom ML models to compare golfer swings to tour pros, with swing metrics and real-time feedback. Video demo available!",
     image: "/projects/neuronami-golf-1.png",
     images: [
       "/projects/neuronami-golf-1.png",
       "/projects/neuronami-golf-2.png",
       "/projects/neuronami-golf-3.jpg",
     ],
-    tags: ["Swift", "YOLO", "CoreML", "Firebase"],
+    tags: ["Swift", "YOLO", "OpenAI", "Vision", "CoreML", "TS", "Firebase"],
     github: null,
-    website: null,
+    website: "https://youtube.com/shorts/AXiuZLbgS-M?feature=share",
     appStoreLabel: "App Store (Spring 2026)",
     primaryLink: null, // you can set this later if you want
     featured: true,
