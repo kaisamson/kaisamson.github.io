@@ -483,7 +483,7 @@ const PROJECTS = [
     title: "Neuronami Golf AI",
     subtitle: "AI Swing Analysis App",
     description:
-      "iOS app that uses pose estimation and custom ML models to compare golfer swings to tour pros, with swing metrics and real-time feedback. Video demo available!",
+      "iOS app that uses pose estimation and custom ML models to compare golfer swings to tour pros, with swing metrics and real-time feedback. Video demo under 2 minutes linked below!",
     image: "/projects/neuronami-golf-1.png",
     images: [
       "/projects/neuronami-golf-1.png",
@@ -494,7 +494,7 @@ const PROJECTS = [
     github: null,
     website: "https://youtube.com/shorts/AXiuZLbgS-M?feature=share",
     appStoreLabel: "App Store (Spring 2026)",
-    primaryLink: null, // you can set this later if you want
+    primaryLink: "https://youtube.com/shorts/AXiuZLbgS-M?feature=share", // you can set this later if you want
     featured: true,
   },
   {
@@ -670,6 +670,10 @@ function ProjectSpotlight({ project }) {
       ? project.images
       : [project.image].filter(Boolean);
 
+  // Primary link used for “clickable spotlight”
+  const primaryHref =
+    project.primaryLink || project.website || project.github || null;
+
   const [imageIndex, setImageIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
   const [isAutoRotate, setIsAutoRotate] = useState(true);
@@ -680,8 +684,7 @@ function ProjectSpotlight({ project }) {
     setPrevIndex(imageIndex);
     setImageIndex(nextIndex);
     setFading(true);
-
-    setTimeout(() => setFading(false), 500); // match fade duration
+    setTimeout(() => setFading(false), 500);
   };
 
   const handleUserInteraction = (callback) => (e) => {
@@ -717,10 +720,7 @@ function ProjectSpotlight({ project }) {
 
   // Resume auto-rotate after 40s
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsAutoRotate(true);
-    }, 40000);
-
+    const timeout = setTimeout(() => setIsAutoRotate(true), 40000);
     return () => clearTimeout(timeout);
   }, [lastInteraction]);
 
@@ -754,59 +754,104 @@ function ProjectSpotlight({ project }) {
             ))}
           </div>
 
-          {/* Featured App Store label */}
-          {project.appStoreLabel && (
-            <div className="inline-flex items-center gap-2 rounded-full bg-black/70 border border-[#7df9ff]/70 px-4 py-1.5 text-sm font-medium text-[#7df9ff]">
-              <FaApple size={16} />
-              <span>{project.appStoreLabel}</span>
+          {/* NEW: App Store + Watch Demo side-by-side */}
+          {(project.appStoreLabel || project.website) && (
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+
+
+              {/* Watch Demo button */}
+              {project.website && (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-[#4eaaff] bg-black/60 px-4 py-2 text-sm font-semibold text-white shadow-md hover:shadow-xl hover:-translate-y-0.5 hover:border-[#7df9ff] transition"
+                >
+                  <FaExternalLinkAlt size={12} className="text-[#7df9ff]" />
+                  <span>Watch Demo</span>
+                </a>
+              )}
+
+              {/* App Store label as a "pill" */}
+              {project.appStoreLabel && (
+                <div className="inline-flex items-center gap-2 rounded-full bg-black/70 border border-[#7df9ff]/70 px-4 py-1.5 text-sm font-medium text-[#7df9ff]">
+                  <FaApple size={16} />
+                  <span>{project.appStoreLabel}</span>
+                </div>
+              )}
+
+            </div>
+          )}
+
+          {/* Optional: Code button below (kept separate so the row stays clean) */}
+          {project.github && (
+            <div className="pt-1">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border-2 border-[#4eaaff] bg-black/60 px-4 py-2 text-sm font-semibold text-white shadow-md hover:shadow-xl hover:-translate-y-0.5 hover:border-[#7df9ff] transition"
+              >
+                <FaGithub size={14} className="text-[#7df9ff]" />
+                <span>Code</span>
+              </a>
             </div>
           )}
         </div>
 
-        {/* RIGHT: Image carousel w/ smooth fade */}
+        {/* RIGHT: Image carousel */}
         <div className="relative h-56 md:h-full min-h-[220px] bg-black/60 overflow-hidden">
-          {/* Previous Image (fades out) */}
-          <img
-            key={`prev-${prevIndex}`}
-            src={images[prevIndex]}
-            alt="prev"
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-              fading ? "opacity-0" : "opacity-0"
-            }`}
-          />
+          {/* Clickable overlay for the whole carousel area */}
+          {primaryHref && (
+            <a
+              href={primaryHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 z-[1]"
+              aria-label={`Open ${project.title}`}
+            />
+          )}
 
-          {/* Current Image (fades in) */}
-          <img
-            key={`current-${imageIndex}`}
-            src={images[imageIndex]}
-            alt="current"
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-              fading ? "opacity-0" : "opacity-100"
-            }`}
-          />
+          {/* Images */}
+          <div className="absolute inset-0 z-[0]">
+            <img
+              key={`prev-${prevIndex}`}
+              src={images[prevIndex]}
+              alt="prev"
+              className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500 opacity-0"
+            />
+
+            <img
+              key={`current-${imageIndex}`}
+              src={images[imageIndex]}
+              alt="current"
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+                fading ? "opacity-0" : "opacity-100"
+              }`}
+            />
+          </div>
 
           {/* Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none z-[2]" />
 
-          {/* Controls */}
+          {/* Controls (above overlay) */}
           {images.length > 1 && (
             <>
               <button
                 onClick={handlePrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full bg-black/60 border border-white/20 p-2 text-white hover:bg-black/80"
+                className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full bg-black/60 border border-white/20 p-2 text-white hover:bg-black/80 z-[3]"
               >
                 <FaChevronLeft size={16} />
               </button>
 
               <button
                 onClick={handleNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full bg-black/60 border border-white/20 p-2 text-white hover:bg-black/80"
+                className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full bg-black/60 border border-white/20 p-2 text-white hover:bg-black/80 z-[3]"
               >
                 <FaChevronRight size={16} />
               </button>
 
-              {/* Dots */}
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-[3]">
                 {images.map((_, i) => (
                   <button
                     key={i}
@@ -824,6 +869,8 @@ function ProjectSpotlight({ project }) {
     </div>
   );
 }
+
+
 
 /* ============================================================
    PROJECTS SECTION — spotlight + 3-column grid
