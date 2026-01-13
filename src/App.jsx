@@ -184,11 +184,12 @@ function HeroTerminalPhase({ onDone }) {
 
 function HeroTypingPhase() {
   const phrases = [
+    "SWE Co-op @ Dialpad 📱✨",
     "Prev. SDI @ 14 Oranges — Android + Web 🍊",
     "CS @ Simon Fraser University 🎓",
-    "Building Neuronami Golf (iOS + ML) 🏌️‍♂️",
+    //"Building Neuronami Golf (iOS + ML) 🏌️‍♂️",
     "OppFest 2025 – Tech & Services Winner 🏆",
-    "iOS + AI development for sports & focus 📱",
+    //"iOS + AI development for sports & focus 📱",
     "Linux automation for legacy systems 🐧💻",
   ];
 
@@ -493,7 +494,7 @@ const PROJECTS = [
     tags: ["Swift", "YOLO", "OpenAI", "Vision", "CoreML", "TS", "Firebase"],
     github: null,
     website: "https://youtube.com/shorts/AXiuZLbgS-M?feature=share",
-    appStoreLabel: "App Store (Spring 2026)",
+    appStoreLabel: null, // "App Store (Spring 2026)"
     primaryLink: "https://youtube.com/shorts/AXiuZLbgS-M?feature=share", // you can set this later if you want
     featured: true,
   },
@@ -946,7 +947,7 @@ const EXPERIENCES = [
     id: "neuronami",
     role: "Founder",
     company: "Neuronami Golf",
-    timeframe: "2024 – Present",
+    timeframe: "2024 – Dec 2025",
     location: "Vancouver, BC",
     blurb:
       "Building AI-native tools for golf practice and logistics, starting with Neuronami Golf – an iOS swing analysis app powered by pose estimation and custom ML.",
