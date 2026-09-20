@@ -184,7 +184,7 @@ function HeroTerminalPhase({ onDone }) {
 
 function HeroTypingPhase() {
   const phrases = [
-    "SWE Co-op @ Dialpad 📱✨",
+    "Prev. SWE Co-op @ Dialpad 📱✨",
     "Prev. SDI @ 14 Oranges — Android + Web 🍊",
     "CS @ Simon Fraser University 🎓",
     //"Building Neuronami Golf (iOS + ML) 🏌️‍♂️",
@@ -905,6 +905,26 @@ function ProjectsSpotlightSection() {
    EXPERIENCE DATA (with logos + highlight badge)
    ============================================================ */
 const EXPERIENCES = [
+  {
+    id: "dialpad",
+    role: "Software Engineer Co-op",
+    company: "Dialpad",
+    timeframe: "Jan 2026 – Aug 2026",
+    location: "Vancouver, BC · Mobile Team",
+    blurb:
+      "Shipped 54 PRs (~15.5k lines) across the iOS and Android Dialpad apps, owning full features end-to-end in a production messaging product used by millions.",
+    bullets: [
+      "Owned Pinned Messages for channels, group chats, and DMs on iOS end-to-end — design, implementation (~2,900 lines across 67 files), analytics instrumentation, and post-launch iteration.",
+      "Built custom Markdown / rich-text rendering engines from scratch on both platforms (Swift and Kotlin CommonMark), with mentions, hashtags, custom emoji, a caching layer for performance, and a 1,300+ line test suite.",
+      "Built a 3-repo analytics automation pipeline (add-analytics → analytics-dispatch → wire-analytics) using Claude Code skills and GitHub workflows, replacing a fully manual cross-team instrumentation process on both mobile platforms.",
+      "Designed an Image Wrapper abstraction unifying Coil and Glide image loading across the Android codebase, and contributed new components (DialtoneModals, seeded group avatars) to the Dialtone design system.",
+      "Fixed production crashes and rendering bugs (NSRangeException out-of-bounds, misplaced mentions/links, unread-pill tracking) and delivered cross-platform feature parity for typing indicators, status messaging, and rich text.",
+    ],
+    tags: ["Swift / UIKit", "Kotlin", "iOS", "Android", "Claude Code", "CI / GitHub Actions", "Analytics"],
+    logo: "/logos/dialpad.png",
+    logoAlt: "Dialpad logo",
+    highlight: "Co-op",
+  },
   {
     id: "mycel",
     role: "Lead Software Engineer",
